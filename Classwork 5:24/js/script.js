@@ -79,22 +79,71 @@ $(document).ready(function(){
 
 	/****** QUESTION 9 ************/
 	// Accept three integers from the user and display the SIGN of the product of the three (aka: display + or -)
+	document.getElementById('integerSign_submit').onclick = function(){
+
+		var num1 = document.getElementById('integerSign_input1').value;
+		var num2 = document.getElementById('integerSign_input2').value;			
+		var num3 = document.getElementById('integerSign_input3').value;
+
+		var numSign = Math.sign(num1 * num2 * num3);
+
+			document.getElementById('integerSign_display').innerHTML = numSign;
+	}
 
 
 
 	/****** QUESTION 10 ************/
 	// Write a JavaScript program to sort three numbers. Display them in order from greatest to smallest
+	document.getElementById('integerSort_submit').onclick = function(){
 
+		var ascend = [];
+
+		ascend.push(document.getElementById('integerSort_input1').value);
+		ascend.push(document.getElementById('integerSort_input2').value);
+		ascend.push(document.getElementById('integerSort_input3').value);	
+
+			document.getElementById('integerSort_display').innerHTML = ascend.sort();
+	}
 
 
 	/****** QUESTION 11 ***********/
 	// Write a function called play() to play rock, paper, scissors and output the winner (player 1 or player 2). This requires ressearch on how to make a function
+	document.getElementById('rps_submit').onclick = function(){
 
+		var player1 = document.getElementById('rps_player1').value;
+		var player2 = document.getElementById('rps_player2').value;			
+		
+		if (player1 != "rock" || player1 != "scissors" || player1 != "paper") {
+			document.getElementById('rps_winner_display').innerHTML = "You ever entered an invalid option";
+		} 
+		
+		if (player2 != "rock" || player2 != "scissors" || player2 != "paper") {
+			document.getElementById('rps_winner_display').innerHTML = "You ever entered an invalid option";
+			
+		}
 
+		
+			document.getElementById('rps_winner_display').innerHTML = "ok";
+
+	}
 
 	/****** QUESTION 12 ***********/
 	// Calculate the factoral of a number inputted by the user
+	document.getElementById('factoral_submit').onclick = function (){
 
+		var factors = document.getElementById('factoral_input').value;
+		if (factors == 0) {
+			document.getElementById('factoral_display').innerHTML = 0;
+			return;
+		} 
+			var answer = 1
+			for(var i = 1; i<= input, i++){
+				answer = asnwer * i;
+				document.getElementById('factoral_display').innerHTML = answer;
+			}
+		
+			}	
+	
 
 
 	/****** QUESTION 13 ***********/
@@ -104,13 +153,73 @@ $(document).ready(function(){
 	//***
 	//****
 	//*****				
+	document.getElementById('star_submit').onclick = function (){
+		var x,y,chr;
+		for(x=1; x <=6; x++){
+			for(y=1; y < x; y++){
+				chr = chr + ("*");
+				document.getElementById('star_display').innerHTML = chr;
+			}
+			console.log(chr);
+		document.getElementById('star_display').innerHTML = chr;
+		chr = '';
+		}
+	}
+
 
 
 	/****** QUESTION 14 ***********/
 	//Write a function that multiplies a base by itself a certain number of times (exponent)
+
 
 	/****** QUESTION 15 ***********/
 	//Write a program that prints the numbers from 1 to 100. But for multiples of three print "Foo" instead of the number and for the multiples of five print "Bar". For numbers which are multiples of both three and five print "FooBar"
 	
 	
 });	
+
+
+
+//Code from classmate
+// 
+//document.getElementById('rps_submit').onclick = function () {
+//    var player1 = document.getElementById('rps_player1').value;
+//    var player2 = document.getElementById('rps_player2').value;
+//    if ((player1 === 'rock' & player2 === 'scissors') || (player1 === 'paper' & player2 === 'rock') || (player1 === 'scissors' & player2 === 'paper')) {
+//        document.getElementById('rps_winner_display').innerHTML = 'Player 1 Wins';
+//    } else {
+//        document.getElementById('rps_winner_display').innerHTML = 'Player 2 Wins';
+//    }
+//}
+
+//13
+// document.getElementById('star_submit').onclick = function () {
+//        var star = '*'; 
+//        for (i = 0; i < 10; i++) {
+//            document.getElementById('star_display').innerHTML += star + '<br>'; 
+//            star += '*'; 
+//        }
+//    }
+
+//14
+// document.getElementById('base_exp_submit').onclick = function () {
+//        var base = document.getElementById('base_input').value; 
+//        var exp = document.getElementById('exp_input').value; 
+//        var answer = Math.pow(base, exp); 
+//        document.getElementById('base_exp_display').innerHTML = answer; 
+//    }
+
+//15
+//    document.getElementById('foobar_submit').onclick = function () {
+//        for (i = 1; i < 101; i += 1) {
+//            if ((i % 3 === 0) & (i % 5 === 0)) {
+//                document.getElementById('foobar_display').innerHTML += 'FooBar' + ', ';
+//                 } else if (i % 3 === 0) {
+//                document.getElementById('foobar_display').innerHTML += 'Foo' + ', ';
+//                 } else if (i % 5 === 0) {
+//                document.getElementById('foobar_display').innerHTML += 'Bar' + ', ';
+//            } else {
+//            document.getElementById('foobar_display').innerHTML += i + ', '; 
+//        }
+//    }
+// }
