@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src='to-do-script.js'></script>
+    <script id="todo-template" type="text/x-handlebars-template">
+    	    <li>{{toDo}}</li>
+    	    <h1>{{blank-h1}}</h1>
+            <p>{{blank-p}}</p>
+    </script>
+
+ <!--    copy template from hellow world - in the head tag, the beginning is above -->
+
+    </head>
+
+    <body>
+        <form id="new_task">
+        	<input id='new_task_input'/>
+        	<input type='submit' id='new_task_submit'/>
+        </form>
+        <ul id="task_list">
+        <li></li>
+        </ul>
+    </body>
+
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.min.js"></script>
+        <script id="hello-world-template" type="text/x-handlebars-template">
+            <h1>{{helloTitle}}</h1>
+            <p>{{helloContent}}</p>
+        </script>
+        <script>
+            $(document).ready(function(){
+                var source = $('#hello-world-template').html();
+                var template = Handlebars.compile(source);
+
+                var helloStatement = { helloTitle: "Hello world", helloContent: "GA JS class is just awesome"};
+
+                var compiledTemplate = template(helloStatement);
+                $('body').append(compiledTemplate);
+            })
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
