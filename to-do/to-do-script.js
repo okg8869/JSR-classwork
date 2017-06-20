@@ -8,7 +8,7 @@ var MyApp = {};
 //We need ::
 //addToList, removeFromList, populateList (if list already exists on page)
 MyApp.compileItem = function(item){
-	var source = $('#todo-template');
+	var source = $('#todo-template').html();
 	var template = HandLebars.compile(source);
 	return template(item);
 };
