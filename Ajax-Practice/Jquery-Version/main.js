@@ -13,40 +13,66 @@ Example endpoint: http://www.omdbapi.com/?i=tt3896198&apikey=ada5c403
 'use strict';
 var MovieApp = {};
 
+MovieApp.createMovie = function(item){
+  var source = $('#movie_list_template').html();
+  var template = Handlebars.compile(source);
+  return template(item);
+};
+
+MovieApp.createInfoBlock = function (item){
+  var source = $('#movie_info_template').html();
+  var template = Handlebars.compile(source);
+  return template(item);
+};
+
 // This is the same as document ready btw.
 $(function() {
 
 	$('#movie_form').submit(function(){
 		event.preventDefault();
 		var input = $('#movie_search').val();
+		var omdbKey = 'ada5c403';
 	    var request = $.ajax({
 	         url:'http://www.omdbapi.com/',
-	         data:{s:input,apikey:'ada5c403'}
+	         data:{s:input,apikey:omdbKey}
 	    });
 	    request.done(function(data){
 	        var movies = data.Search;
 	        for (var i=0;i<movies.length;i++){
-	        	var movieImage = "<li class='imageList' data-year='"+movies[i].Year+"' data-title='"+movies[i].Title+"' data-id='"+movies[i].imdbID+"'><img src='"+movies[i].Poster+"'></li>";
-	        	$('#movie_list').append(movieImage);
+	        	var movieInfo = {
+	        		year:movies[i].Year,
+	        		title:movies[i].Title,
+	        		id:movies[i].imdbID,
+	        		posterImage:movies[i].Poster
+	        	}
+	        	var movieHTML = MovieApp.createMovie(movieInfo);
+	        	$('#movie_list').append(movieHTML);
 	        }
-// 	    $('#movie_search').autocomplete({
-// 	    	serviceURL: 'http://www.omdbapi.com/',
-// 	    	onSelect: function(suggestion) {
-
-// 	    	}
-// });
-		$('.imageList').click(function(){
-			$('#movieInfo').addClass("blockCard");
-			$('#title').html($(this).data('title'));
-			$('#year').html($(this).data('year'));
-	});
-		$('.movieSubmit').hover(function(){
-			$('.movieSubmit').addClass('customCursor');
-
-		});
-
 	    });
 
 	});
-
+			$('body').on('mouseover', '.imageList', function(){
+				$('#movieInfo').addClass("blockCard");
+				var movieInfoBlock = MovieApp.createInfoBlock(movieInfo);
+				$('#movieInfo').html(movieInfoBlock);
+			});
 });
+
+
+
+
+
+// $('body').on('click','.imageList', function (){
+// 	var newID = $(this).data('id');
+// 	var request = $.ajax({
+// 		url:'http://www.omdbapi.com/',
+// 		data: {
+// 			i: currentId,
+// 			plot: 'short',
+// 			apikey: omdbKey
+// 		}
+// 	})
+// 	request.done(function(data){
+// 		alert(data);
+// 	})
+// });

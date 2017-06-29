@@ -8,6 +8,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="handlebars-v4.0.5.js" type="text/javascript" charset="utf-8" async defer></script>
   <script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script id="movie_list_template" type="text/x-handlebars-template">
+    <li>
+      <img class='imageList' data-year='{{year}}' data-title='{{title}}' data-id='{{id}}' src='{{posterImage}}'>
+    </li>
+  </script>
+  <script id="movie_info_template" type="text/x-handlebars-template">
+    <div>
+      <p>{{title}}</p>
+      <p>{{year}}</p>
+    </div>
+  </script>
 </head>
 <body>
   <h1 class="center">Movie App</h1>
@@ -17,15 +28,12 @@
   <input class='movieSubmit' type='submit' value='Find That Movie!'/>
   </form>
   <div id="movieInfo" class="center">
-      <p id='title'></p>
-      <p id='year'></p>
   </div>
   <div>
   	<ul id='movie_list'>
   	</ul>
   </div>
 
-  
 
 
 </body>
