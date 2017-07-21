@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="style.css">
         <script src="scripts.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
     </head>
     <body>
         <h1 class='header'>Welcome to BroGain!</h1>
@@ -17,7 +20,7 @@
 
 
         </div>
-        <div class='center'>
+        <div class='left center'>
             <legend>Your workout (Arms/Chest/Back/Legs/Core/Cardio)</legend>
             <form id='workout-form'>
                 <p>
@@ -46,6 +49,11 @@
                 </p>
                     <input id="submit" type="submit" vaue='submit'/>
             </form>
+        </div>
+        <div class='right center'>
+            <h2>Let's take a look at that progress</h2>
+            <div id='testerz' style="width:100%; height:400px;"></div>
+
         </div>
     </body>
 </html>
