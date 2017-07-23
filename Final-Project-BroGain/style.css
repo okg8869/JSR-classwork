@@ -47,6 +47,14 @@ form {
   left: 75%;
 }
 
+th {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.graph-submit {
+  margin-bottom: 10px;
+}
 
 form  { display: table;      }
 p     { display: table-row;  }

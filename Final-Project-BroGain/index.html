@@ -4,6 +4,7 @@
         <title>BroGain</title>
         <meta charset="utf-8">
         <meta name="description" content="A web application to track and graph your workout process and overall gains.">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="style.css">
         <script src="scripts.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
@@ -20,40 +21,52 @@
 
 
         </div>
+        <div style='position:absolute; left: 40%; top:30%; box-shadow: 5px 5px 3px #888888;'>
+            <table style="width:35%">
+                <tr>
+                    <th><button id='chest'>Chest</button></th>
+                    <th><button id='back'>Back</button></th>
+                    <th><button id='arms'>Arms</button></th>
+                    <th><button id='legs'>Legs</button></th>
+                    <th><button id='shoulders'>Shoulders</button></th>
+                    <th><button id='core'>Core</button></th>
+                </tr>
+            </table>
+        </div>
         <div class='left center'>
             <legend>Your workout (Arms/Chest/Back/Legs/Core/Cardio)</legend>
             <form id='workout-form'>
                 <p>
                     <label>Workout1</label>
-                    <input type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input id="workout1" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Workout2</label>
-                    <input type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input id="workout2" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Workout3</label>
-                    <input type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input id="workout3" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Workout4</label>
-                    <input type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input id="workout4" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Workout5</label>
-                    <input type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input id="workout5" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Workout6</label>
-                    <input type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input id="workout6" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
-                    <input id="submit" type="submit" vaue='submit'/>
+                    <button id="submit">Submit</button>
             </form>
         </div>
         <div class='right center'>
             <h2>Let's take a look at that progress</h2>
-            <div id='testerz' style="width:100%; height:400px;"></div>
-
+            <button id='display-graph' class="graph-submit">Show me the Graph!</button>
+            <div id='container' style="width:100%; height:400px;"></div>
         </div>
     </body>
 </html>
