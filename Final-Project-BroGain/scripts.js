@@ -18,8 +18,6 @@ $(document).ready(function(){
     var shouldersRef = brogainDataReference.ref("Shoulders");
     var coreRef = brogainDataReference.ref("Core");
 
-    
-
   // Log the weight and reps? of a workout
     $('#workout-form').submit(function(event){
       event.preventDefault();
@@ -51,64 +49,12 @@ $(document).ready(function(){
       chestRef.push(chestDataRef);
     });
 
-//(KEEPING THIS FOR REFERNECE -- ALREADY RECREATED Above)
-    //   var workout1Reference = brogainDataReference.ref('Dumbell Press');
-    //   var workout2Reference = brogainDataReference.ref('Decline Press');
-    //   var workout3Reference = brogainDataReference.ref('Incline Press');
-    //   var workout4Reference = brogainDataReference.ref('Dumbell Fly');
-    //   var workout5Reference = brogainDataReference.ref('Cable Uppercut Fly');
-    //   var workout6Reference = brogainDataReference.ref('Pushups');
-
-    //   workout1Reference.push({
-    //     weight: workout1Weight,
-    //   });
-    //   workout2Reference.push({
-    //     weight: workout1Weight,
-    //   });
-    //   workout3Reference.push({
-    //     weight: workout1Weight,
-    //   });
-    //   workout4Reference.push({
-    //     weight: workout1Weight,
-    //   });
-    //   workout5Reference.push({
-    //     weight: workout1Weight,
-    //   });
-    //   workout6Reference.push({
-    //     weight: workout1Weight,
-    //   });
-    // });
-
-  // Retreiving Data from Firebase (KEEPING THIS FOR REFERNECE -- ALREADY RECREATED BELOW)
-    // var dataRef = brogainDataReference.ref('Dumbel Press')
-    // dataRef.on('value', gotData, errData);
-
-
-    // function gotData(data) {
-    //   var data = data.val();
-    //   var keys = Object.keys(data);
-    //   // console.log(data);
-    //   // console.log(keys);
-    //   for (var i = 0; i < keys.length; i++) {
-    //     var keyIndex = keys[i];
-    //     var weight = data[keyIndex].weight;
-    //     // console.log(weight)
-    //   }
-    // }
-
-    // function errData(err) {
-    //   console.log("Error!");
-    //   console.log(err);
-    // }
-
-
   
   // Create graph with Highcharts 
     $('#display-graph').on('click', function(event){
       event.preventDefault();
       var dataRef = brogainDataReference.ref('Chest');
       dataRef.on('value', function(data){
-
       var data = data.val();
       var keys = Object.keys(data);
       // console.log(data);
@@ -166,3 +112,64 @@ $(document).ready(function(){
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+//(KEEPING THIS FOR REFERNECE -- ALREADY RECREATED Above)
+    //   var workout1Reference = brogainDataReference.ref('Dumbell Press');
+    //   var workout2Reference = brogainDataReference.ref('Decline Press');
+    //   var workout3Reference = brogainDataReference.ref('Incline Press');
+    //   var workout4Reference = brogainDataReference.ref('Dumbell Fly');
+    //   var workout5Reference = brogainDataReference.ref('Cable Uppercut Fly');
+    //   var workout6Reference = brogainDataReference.ref('Pushups');
+
+    //   workout1Reference.push({
+    //     weight: workout1Weight,
+    //   });
+    //   workout2Reference.push({
+    //     weight: workout1Weight,
+    //   });
+    //   workout3Reference.push({
+    //     weight: workout1Weight,
+    //   });
+    //   workout4Reference.push({
+    //     weight: workout1Weight,
+    //   });
+    //   workout5Reference.push({
+    //     weight: workout1Weight,
+    //   });
+    //   workout6Reference.push({
+    //     weight: workout1Weight,
+    //   });
+    // });
+
+  // Retreiving Data from Firebase (KEEPING THIS FOR REFERNECE -- ALREADY RECREATED BELOW)
+    // var dataRef = brogainDataReference.ref('Dumbel Press')
+    // dataRef.on('value', gotData, errData);
+
+
+    // function gotData(data) {
+    //   var data = data.val();
+    //   var keys = Object.keys(data);
+    //   // console.log(data);
+    //   // console.log(keys);
+    //   for (var i = 0; i < keys.length; i++) {
+    //     var keyIndex = keys[i];
+    //     var weight = data[keyIndex].weight;
+    //     // console.log(weight)
+    //   }
+    // }
+
+    // function errData(err) {
+    //   console.log("Error!");
+    //   console.log(err);
+    // }
