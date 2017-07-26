@@ -21,8 +21,8 @@
 
 
         </div>
-        <div style='position:absolute; left: 40%; top:30%; box-shadow: 5px 5px 3px #888888;'>
-            <table style="width:35%">
+        <div id='topmenu' style='max-width: 500px; margin: 0 auto; box-shadow: 5px 5px 3px #888888;'>
+            <table style='width:100%; margin-top:10px;'>
                 <tr>
                     <th><button id='chest'>Chest</button></th>
                     <th><button id='back'>Back</button></th>
@@ -33,38 +33,178 @@
                 </tr>
             </table>
         </div>
-        <div class='left center'>
+        <div class='column'>
             <legend>Your Workout Update</legend>
-            <label>Chest</label>
-            <form id='workout-form'>
+            <form class='workout-form active' id="chestform">
+                <label>Chest</label>
                 <p>
                     <label>Dumbell Press</label>
-                    <input id="workout1" type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input name="workout1" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Decline Press</label>
-                    <input id="workout2" type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input name="workout2" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Incline Press</label>
-                    <input id="workout3" type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input name="workout3" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Dumbell Fly</label>
-                    <input id="workout4" type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input name="workout4" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Cable Uppercut Fly</label>
-                    <input id="workout5" type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input name="workout5" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
                 <p>
                     <label>Pushups</label>
-                    <input id="workout6" type="text" class="workoutinput" placeholder="weight/reps"/>
+                    <input name="workout6" type="text" class="workoutinput" placeholder="weight/reps"/>
                 </p>
-                    <button id="submit">Submit</button>
+                    <button class="submit">Submit</button>
             </form>
-        </div>
-        <div class='right center'>
+            <form class='workout-form' id="backform">
+                <label>Back</label>
+                <p>
+                    <label>Deadlift</label>
+                    <input name="workout1" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Single Arm Dumbell Row</label>
+                    <input name="workout2" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Cable Row</label>
+                    <input name="workout3" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Wide Grip Pull Down</label>
+                    <input name="workout4" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Cable Row</label>
+                    <input name="workout5" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Wide Grip Pullup</label>
+                    <input name="workout6" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                    <button class="submit">Submit</button>
+            </form>
+            <form class='workout-form' id="armsform">
+                <label>Arms</label>
+                <p>
+                    <label>Dumbell Curls</label>
+                    <input name="workout1" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Hammer Curls</label>
+                    <input name="workout2" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Preacher Curls</label>
+                    <input name="workout3" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Dumbell Tricep Curls</label>
+                    <input name="workout4" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Lying Tricep Press</label>
+                    <input name="workout5" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Palm Up Barbell Wrist Curl</label>
+                    <input name="workout6" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                    <button class="submit">Submit</button>
+            </form>
+            <form class='workout-form' id="legsform">
+                <label>Legs</label>
+                <p>
+                    <label>Barbell Squat</label>
+                    <input name="workout1" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Dumbell Lunges</label>
+                    <input name="workout2" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Barbell Deadlift</label>
+                    <input name="workout3" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Dumbell Step Ups/Jump Ups</label>
+                    <input name="workout4" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Dumbell Calf Extensions</label>
+                    <input name="workout5" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Leg Press</label>
+                    <input name="workout6" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                    <button class="submit">Submit</button>
+            </form>
+            <form class='workout-form' id="shouldersform">
+                <label>Shoulders</label>
+                <p>
+                    <label>Dumbell Shoulder Press</label>
+                    <input name="workout1" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Bent Rear Delt Raise</label>
+                    <input name="workout2" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Side Lateral Raise</label>
+                    <input name="workout3" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Seated barbell Military Press</label>
+                    <input name="workout4" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Upright Cable Row</label>
+                    <input name="workout5" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Full Movment (Out, Center, Up, Down)</label>
+                    <input name="workout6" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                    <button class="submit">Submit</button>
+            </form>
+            <form class='workout-form' id="coreform">
+                <label>Core/Cardio</label>
+                <p>
+                    <label>JumpRope (in minutes per round)</label>
+                    <input name="workout1" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Plank (in minutes per session)</label>
+                    <input name="workout2" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Barbell/Plat Side Bend</label>
+                    <input name="workout3" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Decline Situps (# per round)</label>
+                    <input name="workout4" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Lying Leg Raise (# per round)</label>
+                    <input name="workout5" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                <p>
+                    <label>Russion Twist (Weight per 10/15)</label>
+                    <input name="workout6" type="text" class="workoutinput" placeholder="weight/reps"/>
+                </p>
+                    <button class="submit">Submit</button>
+            </form>
+        </div><!-- 
+         --><div class='column'>
             <h2>Let's take a look at that progress</h2>
             <button id='display-graph' class="graph-submit">Show me the Graph!</button>
             <div id='container' style="width:100%; height:400px;"></div>

@@ -15,64 +15,88 @@ $(document).ready(function(){
 // Database Reference names 
     var databaseReferences = [];   
 
-    var chestRef = brogainDataReference.ref("Chest");
-    var backRef = brogainDataReference.ref("Back");
-    var armsRef = brogainDataReference.ref("Arms");
-    var legsRef = brogainDataReference.ref("Legs");
-    var shouldersRef = brogainDataReference.ref("Shoulders");
-    var coreRef = brogainDataReference.ref("Core");
-
   // Log the weight and reps? of a workout
-    $('#workout-form').submit(function(event){
+    $('.workout-form').submit(function(event){
+      var ref = false;
+      if($(this).attr('id') == 'chestform'){
+        ref = brogainDataReference.ref("Chest");
+      }
+      if($(this).attr('id') == 'backform'){
+        ref = brogainDataReference.ref("Back");
+      }
+      if($(this).attr('id') == 'armsform'){
+        ref = brogainDataReference.ref("Arms");
+      }
+      if($(this).attr('id') == 'legsform'){
+        ref = brogainDataReference.ref("Legs");
+      }
+      if($(this).attr('id') == 'shouldersform'){
+        ref = brogainDataReference.ref("Shoulders");
+      }
+      if($(this).attr('id') == 'coreform'){
+        ref = brogainDataReference.ref("Core");
+      }
       event.preventDefault();
-      var workout1Weight = $('#workout1').val();
-      $('#workout1').val('');
-      var workout2Weight = $('#workout2').val();
-      $('#workout2').val('');
-      var workout3Weight = $('#workout3').val();
-      $('#workout3').val('');
-      var workout4Weight = $('#workout4').val();
-      $('#workout4').val('');
-      var workout5Weight = $('#workout5').val();
-      $('#workout5').val('');
-      var workout6Weight = $('#workout6').val();
-      $('#workout6').val('');
+      var formData = $(this).serializeArray();
+      console.log(formData)
+      $(this).find('input').val('');
 
-      var allWorkoutData = [workout1Weight,workout2Weight,workout3Weight,workout4Weight,workout5Weight,workout6Weight];
-      console.log(allWorkoutData[1]);
-
-      var chestDataRef = {
-        dumbellpress: allWorkoutData[0],
-        declinepress: allWorkoutData[1],
-        inclinepress: allWorkoutData[2],
-        dumbellfly: allWorkoutData[3],
-        cableuppercutfly: allWorkoutData[4],
-        pushups: allWorkoutData[5]
+      var refdata = {
+        workoutInput1: formData[0].value,
+        workoutInput2: formData[1].value,
+        workoutInput3: formData[2].value,
+        workoutInput4: formData[3].value,
+        workoutInput5: formData[4].value,
+        workoutInput6: formData[5].value
       }
 
-      chestRef.push(chestDataRef);
+      ref.push(refdata);
     });
 
-  var bodyRefData = {};
-  var bodyRef = brogainDataReference.ref('Body')
-  bodyRef.on('value', function(data){
-    bodyRefData = data.val();
-    for (var bodyArea in bodyRefData){
-      if (bodyRefData.hasOwnProperty(bodyArea)) {
-        databaseReferences.push(brogainDataReference.ref(bodyArea));
+    $('#topmenu').find('button').on('click', function(){
+      $('.active').removeClass('active');
+      if($(this).attr('id') == 'chest'){
+        $('#chestform').addClass('active');
       }
-    };
-    for (var i=0;i<databaseReferences.length;i++){
-      databaseReferences[i].on('value', function(data){
-      //data + input 1 ... 2 for second
-      })
-    }
-  });
+      if($(this).attr('id') == 'back'){
+        $('#backform').addClass('active');
+      }
+      if($(this).attr('id') == 'arms'){
+        $('#armsform').addClass('active');
+      }
+      if($(this).attr('id') == 'legs'){
+        $('#legsform').addClass('active');
+      }
+      if($(this).attr('id') == 'shoulders'){
+        $('#shouldersform').addClass('active');
+      }
+      if($(this).attr('id') == 'core'){
+        $('#coreform').addClass('active');
+      }
+    });
+
+
+// var bodyRefData = {};
+// var bodyRef = brogainDataReference.ref('Body')
+// bodyRef.on('value', function(data){
+//   bodyRefData = data.val();
+//   for (var bodyArea in bodyRefData){
+//     if (bodyRefData.hasOwnProperty(bodyArea)) {
+//       databaseReferences.push(brogainDataReference.ref(bodyArea));
+//     }
+//   };
+//   for (var i=0;i<databaseReferences.length;i++){
+//     databaseReferences[i].on('value', function(data){
+      
+//     })
+//   }
+// });
 
   // Create graph with Highcharts 
     $('#display-graph').on('click', function(event){
       event.preventDefault();
       var dataRef = brogainDataReference.ref('Chest');
+      // console.log(dataRef);
       dataRef.on('value', function(data){
         var data = data.val();
         var keys = Object.keys(data);
@@ -81,8 +105,9 @@ $(document).ready(function(){
         var trueWeight = [];
         for (var i = 0; i < keys.length; i++) {
           var keyIndex = keys[i];
-          var weight = parseInt(data[keyIndex].dumbellpress);
+          var weight = parseInt(data[keyIndex].workoutInput1);
           trueWeight.push(weight);
+          
         };
         var url="https://brogain-e4808.firebaseio.com/.json";
         $.getJSON(url, function(data){
@@ -113,7 +138,7 @@ $(document).ready(function(){
               }
             },
             series: [{
-              name: workout1,
+              // name: workout,
               data: trueWeight
             }]
           }

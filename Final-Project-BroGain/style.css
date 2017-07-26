@@ -30,21 +30,20 @@ form {
     float:left;
 }
 
-.center {
-	position: absolute;
-  width: 300px;
-  height: 200px;
-  z-index: 15;
-  top: 50%;
-  margin: -100px 0 0 -150px;
+.column {
+  vertical-align: top;
+  width:50%;
+  display:inline-block;
+  box-sizing: border-box;
+  padding:20px;
 }
 
-.left {
-  left: 35%;
+.workout-form {
+  display: none;
 }
 
-.right {
-  left: 75%;
+.workout-form.active {
+  display: block;
 }
 
 th {
