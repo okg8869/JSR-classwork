@@ -53,25 +53,32 @@ $(document).ready(function(){
       ref.push(refdata);
     });
 
+    var muscleGroup = "Chest";
     $('#topmenu').find('button').on('click', function(){
       $('.active').removeClass('active');
       if($(this).attr('id') == 'chest'){
         $('#chestform').addClass('active');
+        muscleGroup = "Chest";
       }
       if($(this).attr('id') == 'back'){
         $('#backform').addClass('active');
+        muscleGroup = "Back";
       }
       if($(this).attr('id') == 'arms'){
         $('#armsform').addClass('active');
+        muscleGroup = "Arms";
       }
       if($(this).attr('id') == 'legs'){
         $('#legsform').addClass('active');
+        muscleGroup = "Legs";
       }
       if($(this).attr('id') == 'shoulders'){
         $('#shouldersform').addClass('active');
+        muscleGroup = "Shoulders";
       }
       if($(this).attr('id') == 'core'){
         $('#coreform').addClass('active');
+        muscleGroup = "Core";
       }
     });
 
@@ -92,22 +99,22 @@ $(document).ready(function(){
 //   }
 // });
 
+   
+
   // Create graph with Highcharts 
-    $('#display-graph').on('click', function(event){
+    $('.graphButton').on('click', function(){
       event.preventDefault();
-      var dataRef = brogainDataReference.ref('Chest');
-      // console.log(dataRef);
+      var dataNode = $(this).data('group');    
+      event.preventDefault();
+      var dataRef = brogainDataReference.ref(muscleGroup);
       dataRef.on('value', function(data){
         var data = data.val();
         var keys = Object.keys(data);
-        // console.log(data);
-        // console.log(keys);
         var trueWeight = [];
         for (var i = 0; i < keys.length; i++) {
           var keyIndex = keys[i];
-          var weight = parseInt(data[keyIndex].workoutInput1);
+          var weight = parseInt(data[keyIndex][dataNode]);
           trueWeight.push(weight);
-          
         };
         var url="https://brogain-e4808.firebaseio.com/.json";
         $.getJSON(url, function(data){
